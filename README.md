@@ -10,13 +10,13 @@
 
 ## Requirements
 * NodeJS 14.x or higher
-* Angular 11.x or higher / Latest AngularJS, VueJS or React
+* Angular 11.x or higher / Latest AngularJS
 * Github account
 
 ## Getting Started
 * fork the repository
-* Make it private
-* add user `btoaelbore` Collaborator
+* Make it private repository
+* add user `btoaelbore` as Collaborator
 * update this `README` file to include the installation guide
 
 ## Installation
