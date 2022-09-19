@@ -15,9 +15,9 @@
 
 ## Getting Started
 * fork the repository
-* create a feature branch `git checkout -b feature/<any-feature-you-want>`
+* Make it private
+* add user `btoaelbore` Collaborator
 * update this `README` file to include the installation guide
-* create a Pull Request to this repository
 
 ## Installation
 * `You Installation Guide Here`
