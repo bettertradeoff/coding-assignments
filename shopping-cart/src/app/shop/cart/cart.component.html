@@ -6,11 +6,7 @@
       <p class="d-inline-block">
         <b>{{ item.name }}</b> - ${{ item.price }}
       </p>
-      <button
-        mat-raised-button
-        class="btn-color"
-        (click)="removeToCart(item.id)"
-      >
+      <button mat-raised-button class="btn-color" (click)="removeToCart(item)">
         Remove to Cart
       </button>
 

@@ -9,12 +9,10 @@ export const initialState: CartItem[] = [];
 
 export const shopReducer = createReducer(
   initialState,
-
   on(addItemToCartActionSuccess, (state, { item }) => {
     let cartItem = [...state];
     let newItem = { ...item };
     let itemExist = cartItem.find((i) => i.id == newItem.id);
-    console.log(itemExist);
 
     if (itemExist) {
       newItem.quantity = itemExist.quantity + 1;
@@ -22,16 +20,25 @@ export const shopReducer = createReducer(
     } else {
       newItem.quantity = 1;
     }
-
     cartItem.push(newItem);
-    console.log('newItem: ', cartItem);
+
     return cartItem;
   }),
-
-  on(removeItemToCartActionSuccess, (state, { productId }) => {
+  on(removeItemToCartActionSuccess, (state, { item }) => {
     let cartItem = [...state];
+    let newState = { ...item };
+    let itemExist = cartItem.find((i) => i.id == item.id);
 
-    let itemExist = cartItem.find((i) => i.id == productId);
+    if (itemExist) {
+      newState.quantity = itemExist.quantity - 1;
+      if (newState.quantity == 0) {
+        cartItem.splice(cartItem.indexOf(itemExist), 1);
+      }
+    } else {
+      newState.quantity -= 1;
+    }
+    cartItem.push(newState);
+    cartItem.splice(cartItem.indexOf(itemExist), 1);
 
     return cartItem;
   })

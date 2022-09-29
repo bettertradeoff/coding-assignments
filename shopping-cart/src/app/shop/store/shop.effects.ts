@@ -71,7 +71,7 @@ export class ShopEffects {
           setStatus({ apiStatus: { response: '', status: '' } })
         );
 
-        return this.shopService.removeItem(action.productId).pipe(
+        return this.shopService.removeItem(action.item).pipe(
           map((data) => {
             this.appStore.dispatch(
               setStatus({
@@ -80,7 +80,7 @@ export class ShopEffects {
             );
 
             return removeItemToCartActionSuccess({
-              productId: action.productId,
+              item: action.item,
             });
           })
         );

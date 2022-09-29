@@ -4,7 +4,7 @@
       "id": 4,
       "name": "Fork",
       "price": 6,
-      "quantity": 5
+      "quantity": 1
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "id": 2,
       "name": "Plate",
       "price": 25,
-      "quantity": 5
+      "quantity": 1
     }
   ]
 }

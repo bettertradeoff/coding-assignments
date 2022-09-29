@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
       }
     });
   }
-  removeToCart(id: number) {
-    this.store.dispatch(removeItemToCartAction({ productId: id }));
+  removeToCart(item) {
+    this.store.dispatch(removeItemToCartAction({ item: item }));
   }
 }

@@ -31,10 +31,10 @@ export const addItemToCartActionSuccess = createAction(
 
 export const removeItemToCartAction = createAction(
   ShoppingCartActionTypes.REMOVE_ITEM_TO_CART,
-  props<{ productId: number }>()
+  props<{ item: CartItem }>()
 );
 
 export const removeItemToCartActionSuccess = createAction(
   ShoppingCartActionTypes.REMOVE_ITEM_TO_CART_SUCCESS,
-  props<{ productId: number }>()
+  props<{ item: CartItem }>()
 );

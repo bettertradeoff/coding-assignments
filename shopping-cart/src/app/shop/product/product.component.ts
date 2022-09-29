@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ShopItem } from '../store/shop';
 import { addItemToCartAction } from '../store/shop.action';
+import { selectCartItems } from '../store/shop.selector';
 
 interface items {
   id: number;
@@ -15,7 +16,7 @@ interface items {
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  // products$ = this.store.pipe(select(selectAllItems));
+  carts$ = this.store.pipe(select(selectCartItems));
   products$ = [
     {
       id: 2,
@@ -42,6 +43,7 @@ export class ProductComponent implements OnInit {
       quantity: 5,
     },
   ];
+  isBtnDisable: boolean;
 
   constructor(private store: Store) {}
 

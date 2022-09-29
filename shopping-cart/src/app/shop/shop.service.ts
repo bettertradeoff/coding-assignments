@@ -23,7 +23,10 @@ export class ShopService {
     );
   }
 
-  removeItem(id: number) {
-    return this.http.put<ShopItem>(`http://localhost:3000/shop/${id}`, id);
+  removeItem(payload: ShopItem) {
+    return this.http.put<ShopItem>(
+      `http://localhost:3000/shop/${payload.id}`,
+      payload
+    );
   }
 }
