@@ -1,0 +1,12 @@
+<div class="container">
+  <mat-card class="mb-3" *ngFor="let item of products$">
+    <div>
+      <p class="d-inline-block">
+        <b>{{ item.name }}</b> - ${{ item.price }}
+      </p>
+      <button mat-raised-button class="btn-color" (click)="addToCart(item)">
+        Add to Cart
+      </button>
+    </div>
+  </mat-card>
+</div>

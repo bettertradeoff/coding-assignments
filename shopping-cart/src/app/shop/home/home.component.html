@@ -1,0 +1,28 @@
+<div class="container-fluid main">
+  <div class="row">
+    <div class="col-md-3 cart-title">
+      <h4 class="">Shopping Cart App</h4>
+    </div>
+    <div class="col-md-6">
+      <nav
+        mat-tab-nav-bar
+        [tabPanel]="tabPanel"
+        class="nav-links"
+        mat-align-tabs="center"
+      >
+        <a
+          mat-tab-link
+          *ngFor="let page of pages"
+          (click)="onTabChange(page)"
+          [active]="activeLink === page.link"
+        >
+          {{ page.name }}
+          {{ page.link === "/cart" ? "(" + quantity + ")" : "" }}
+        </a>
+      </nav>
+    </div>
+    <mat-tab-nav-panel #tabPanel>
+      <router-outlet></router-outlet>
+    </mat-tab-nav-panel>
+  </div>
+</div>

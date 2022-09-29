@@ -1,0 +1,28 @@
+{
+  "shop": [
+    {
+      "id": 4,
+      "name": "Fork",
+      "price": 6,
+      "quantity": 1
+    },
+    {
+      "id": 3,
+      "name": "Spoon",
+      "price": 6,
+      "quantity": 5
+    },
+    {
+      "id": 5,
+      "name": "Bowl",
+      "price": 30,
+      "quantity": 5
+    },
+    {
+      "id": 2,
+      "name": "Plate",
+      "price": 25,
+      "quantity": 1
+    }
+  ]
+}
