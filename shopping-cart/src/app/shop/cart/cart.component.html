@@ -1,1 +1,20 @@
-<p>cart works!</p>
+<div class="container">
+  <p *ngIf="isEmpty">No items in cart!</p>
+
+  <mat-card class="mb-3" *ngFor="let item of products$ | async">
+    <div>
+      <p class="d-inline-block">
+        <b>{{ item.name }}</b> - ${{ item.price }}
+      </p>
+      <button
+        mat-raised-button
+        class="btn-color"
+        (click)="removeToCart(item.id)"
+      >
+        Remove to Cart
+      </button>
+
+      <p>Quantity: {{ item.quantity }}</p>
+    </div>
+  </mat-card>
+</div>

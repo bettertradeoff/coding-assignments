@@ -1,38 +1,38 @@
 import { createReducer, on } from '@ngrx/store';
-import { ShopItem } from './shop';
-import { getAllItemsSuccess } from './shop.action';
+import { CartItem } from './shop';
+import {
+  addItemToCartActionSuccess,
+  removeItemToCartActionSuccess,
+} from './shop.action';
 
-export const initialState: ReadonlyArray<ShopItem> = [
-  {
-    id: 1,
-    name: 'Mug',
-    price: 10,
-  },
-  {
-    id: 2,
-    name: 'Plate',
-    price: 25,
-  },
-  {
-    id: 3,
-    name: 'Spoon',
-    price: 6,
-  },
-  {
-    id: 4,
-    name: 'Fork',
-    price: 6,
-  },
-  {
-    id: 5,
-    name: 'Bowl',
-    price: 30,
-  },
-];
+export const initialState: CartItem[] = [];
 
 export const shopReducer = createReducer(
   initialState,
-  on(getAllItemsSuccess, (state, { response }) => {
-    return response;
+
+  on(addItemToCartActionSuccess, (state, { item }) => {
+    let cartItem = [...state];
+    let newItem = { ...item };
+    let itemExist = cartItem.find((i) => i.id == newItem.id);
+    console.log(itemExist);
+
+    if (itemExist) {
+      newItem.quantity = itemExist.quantity + 1;
+      cartItem.splice(cartItem.indexOf(itemExist), 1);
+    } else {
+      newItem.quantity = 1;
+    }
+
+    cartItem.push(newItem);
+    console.log('newItem: ', cartItem);
+    return cartItem;
+  }),
+
+  on(removeItemToCartActionSuccess, (state, { productId }) => {
+    let cartItem = [...state];
+
+    let itemExist = cartItem.find((i) => i.id == productId);
+
+    return cartItem;
   })
 );

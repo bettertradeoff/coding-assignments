@@ -12,6 +12,8 @@ import { shopReducer } from './store/shop.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ShopEffects } from './store/shop.effects';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [CartComponent, ProductComponent, HomeComponent],
@@ -21,6 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatTabsModule,
     MatCardModule,
     MatButtonModule,
+    FormsModule,
+    HttpClientModule,
     StoreModule.forFeature('shopitems', shopReducer),
     EffectsModule.forFeature([ShopEffects]),
   ],

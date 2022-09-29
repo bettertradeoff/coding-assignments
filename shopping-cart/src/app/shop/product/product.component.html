@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card class="mb-3" *ngFor="let item of products$ | async">
+  <mat-card class="mb-3" *ngFor="let item of products$">
     <div>
       <p class="d-inline-block">
         <b>{{ item.name }}</b> - ${{ item.price }}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { selectCartItems } from '../store/shop.selector';
 
 @Component({
   selector: 'app-home',
@@ -17,12 +19,26 @@ export class HomeComponent implements OnInit {
       link: '/cart',
     },
   ];
-  activeLink = this.pages[0].link;
-  currentRoute: string = '/product';
+  activeLink = this.router.url;
+  currentRoute: string = '';
+  products$ = this.store.pipe(select(selectCartItems));
+  quantity = 0;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private store: Store,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.products$.subscribe((res) => {
+      const sum = res.reduce((acc, obj) => {
+        return acc + obj.quantity;
+      }, 0);
+
+      this.quantity = sum;
+    });
+  }
 
   onTabChange(page: any) {
     this.currentRoute = page.link;

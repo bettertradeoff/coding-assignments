@@ -17,7 +17,7 @@
           [active]="activeLink === page.link"
         >
           {{ page.name }}
-          {{ page.link === "/cart" ? 0 : "" }}
+          {{ page.link === "/cart" ? "(" + quantity + ")" : "" }}
         </a>
       </nav>
     </div>

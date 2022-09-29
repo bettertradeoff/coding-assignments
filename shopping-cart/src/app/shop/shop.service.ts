@@ -8,7 +8,22 @@ import { ShopItem } from './store/shop';
 export class ShopService {
   constructor(private http: HttpClient) {}
 
-  get() {
-    return this.http.get<ShopItem[]>('http://localhost:3000/products');
+  getItem() {
+    return this.http.get<ShopItem[]>('http://localhost:3000/shop');
+  }
+
+  // addItem(payload: ShopItem) {
+  //   return this.http.post<ShopItem>('http://localhost:3000/shop', payload);
+  // }
+
+  addItem(payload: ShopItem) {
+    return this.http.put<ShopItem>(
+      `http://localhost:3000/shop/${payload.id}`,
+      payload
+    );
+  }
+
+  removeItem(id: number) {
+    return this.http.put<ShopItem>(`http://localhost:3000/shop/${id}`, id);
   }
 }

@@ -1,4 +1,4 @@
-import { createFeatureSelector } from '@ngrx/store';
-import { ShopItem } from './shop';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { CartItem, ShopItem } from './shop';
 
-export const selectAllItems = createFeatureSelector<ShopItem[]>('shopitems');
+export const selectCartItems = createFeatureSelector<CartItem[]>('shopitems');
